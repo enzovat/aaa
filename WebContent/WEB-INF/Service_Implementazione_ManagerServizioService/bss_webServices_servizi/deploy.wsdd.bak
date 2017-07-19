@@ -1,0 +1,45 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Service_Implementazione_ManagerServizioService WSDL service -->
+
+  <service name="Service_Implementazione_ManagerServizio" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bss_webServices_servizi"/>
+      <parameter name="wsdlServiceElement" value="Service_Implementazione_ManagerServizioService"/>
+      <parameter name="schemaQualified" value="http://bss_webServices_servizi"/>
+      <parameter name="wsdlServicePort" value="Service_Implementazione_ManagerServizio"/>
+      <parameter name="className" value="bss_webServices_servizi.Service_Implementazione_ManagerServizioSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Service_Implementazione_ManagerServizio"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="get_Servizio" qname="operNS:get_Servizio" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:get_ServizioReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID_serv" xmlns:pns="http://bss_webServices_servizi" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="add_Servizio" qname="operNS:add_Servizio" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:add_ServizioReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:my_serv" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="remove_Servizio" qname="operNS:remove_Servizio" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:remove_ServizioReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:my_serv" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modifica_Servizio" qname="operNS:modifica_Servizio" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:modifica_ServizioReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:my_serv_old" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:my_serv_new" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="visualizza_Servizi" qname="operNS:visualizza_Servizi" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:visualizza_ServiziReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:categoria" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="ricercaServizi" qname="operNS:ricercaServizi" xmlns:operNS="http://bss_webServices_servizi" returnQName="retNS:ricercaServiziReturn" xmlns:retNS="http://bss_webServices_servizi" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:titolo" xmlns:pns="http://bss_webServices_servizi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="add_Servizio ricercaServizi get_Servizio remove_Servizio visualizza_Servizi modifica_Servizio"/>
+
+  </service>
+</deployment>

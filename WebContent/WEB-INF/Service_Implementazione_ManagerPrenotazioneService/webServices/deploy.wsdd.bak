@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Service_Implementazione_ManagerPrenotazioneService WSDL service -->
+
+  <service name="Service_Implementazione_ManagerPrenotazione" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webServices"/>
+      <parameter name="wsdlServiceElement" value="Service_Implementazione_ManagerPrenotazioneService"/>
+      <parameter name="schemaQualified" value="http://webServices"/>
+      <parameter name="wsdlServicePort" value="Service_Implementazione_ManagerPrenotazione"/>
+      <parameter name="className" value="webServices.Service_Implementazione_ManagerPrenotazioneSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Service_Implementazione_ManagerPrenotazione"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addPrenotazione" qname="operNS:addPrenotazione" xmlns:operNS="http://webServices" returnQName="retNS:addPrenotazioneReturn" xmlns:retNS="http://webServices" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:mypren" xmlns:pns="http://webServices" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="delPrenotazione" qname="operNS:delPrenotazione" xmlns:operNS="http://webServices" returnQName="retNS:delPrenotazioneReturn" xmlns:retNS="http://webServices" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:mypren" xmlns:pns="http://webServices" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchPrenotazione" qname="operNS:searchPrenotazione" xmlns:operNS="http://webServices" returnQName="retNS:searchPrenotazioneReturn" xmlns:retNS="http://webServices" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id_cliente" xmlns:pns="http://webServices" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="editPrenotazione" qname="operNS:editPrenotazione" xmlns:operNS="http://webServices" returnQName="retNS:editPrenotazioneReturn" xmlns:retNS="http://webServices" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:mypren_toMod" xmlns:pns="http://webServices" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mypren_New" xmlns:pns="http://webServices" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="get_prenotazione" qname="operNS:get_prenotazione" xmlns:operNS="http://webServices" returnQName="retNS:get_prenotazioneReturn" xmlns:retNS="http://webServices" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID_Prenotazione" xmlns:pns="http://webServices" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addPrenotazione searchPrenotazione editPrenotazione get_prenotazione delPrenotazione"/>
+
+  </service>
+</deployment>

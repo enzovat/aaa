@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bss_webServices_servizi" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bss_webServices_servizi" xmlns:intf="http://bss_webServices_servizi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bss_webServices_servizi" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="get_Servizio">
+    <complexType>
+     <sequence>
+      <element name="ID_serv" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="get_ServizioResponse">
+    <complexType>
+     <sequence>
+      <element name="get_ServizioReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_Servizio">
+    <complexType>
+     <sequence>
+      <element name="my_serv" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_ServizioResponse">
+    <complexType>
+     <sequence>
+      <element name="add_ServizioReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="remove_Servizio">
+    <complexType>
+     <sequence>
+      <element name="my_serv" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="remove_ServizioResponse">
+    <complexType>
+     <sequence>
+      <element name="remove_ServizioReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifica_Servizio">
+    <complexType>
+     <sequence>
+      <element name="my_serv_old" type="xsd:string"/>
+      <element name="my_serv_new" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifica_ServizioResponse">
+    <complexType>
+     <sequence>
+      <element name="modifica_ServizioReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="visualizza_Servizi">
+    <complexType>
+     <sequence>
+      <element name="categoria" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="visualizza_ServiziResponse">
+    <complexType>
+     <sequence>
+      <element name="visualizza_ServiziReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ricercaServizi">
+    <complexType>
+     <sequence>
+      <element name="titolo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ricercaServiziResponse">
+    <complexType>
+     <sequence>
+      <element name="ricercaServiziReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="visualizza_ServiziRequest">
+
+      <wsdl:part element="impl:visualizza_Servizi" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_ServizioResponse">
+
+      <wsdl:part element="impl:get_ServizioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_ServizioRequest">
+
+      <wsdl:part element="impl:get_Servizio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ricercaServiziRequest">
+
+      <wsdl:part element="impl:ricercaServizi" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="remove_ServizioResponse">
+
+      <wsdl:part element="impl:remove_ServizioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifica_ServizioRequest">
+
+      <wsdl:part element="impl:modifica_Servizio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="visualizza_ServiziResponse">
+
+      <wsdl:part element="impl:visualizza_ServiziResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ricercaServiziResponse">
+
+      <wsdl:part element="impl:ricercaServiziResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_ServizioRequest">
+
+      <wsdl:part element="impl:add_Servizio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifica_ServizioResponse">
+
+      <wsdl:part element="impl:modifica_ServizioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_ServizioResponse">
+
+      <wsdl:part element="impl:add_ServizioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="remove_ServizioRequest">
+
+      <wsdl:part element="impl:remove_Servizio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service_Implementazione_ManagerServizio">
+
+      <wsdl:operation name="get_Servizio">
+
+         <wsdl:input message="impl:get_ServizioRequest" name="get_ServizioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:get_ServizioResponse" name="get_ServizioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_Servizio">
+
+         <wsdl:input message="impl:add_ServizioRequest" name="add_ServizioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:add_ServizioResponse" name="add_ServizioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="remove_Servizio">
+
+         <wsdl:input message="impl:remove_ServizioRequest" name="remove_ServizioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:remove_ServizioResponse" name="remove_ServizioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifica_Servizio">
+
+         <wsdl:input message="impl:modifica_ServizioRequest" name="modifica_ServizioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modifica_ServizioResponse" name="modifica_ServizioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="visualizza_Servizi">
+
+         <wsdl:input message="impl:visualizza_ServiziRequest" name="visualizza_ServiziRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:visualizza_ServiziResponse" name="visualizza_ServiziResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ricercaServizi">
+
+         <wsdl:input message="impl:ricercaServiziRequest" name="ricercaServiziRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ricercaServiziResponse" name="ricercaServiziResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Service_Implementazione_ManagerServizioSoapBinding" type="impl:Service_Implementazione_ManagerServizio">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="get_Servizio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="get_ServizioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="get_ServizioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_Servizio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="add_ServizioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="add_ServizioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="remove_Servizio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="remove_ServizioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="remove_ServizioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifica_Servizio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifica_ServizioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifica_ServizioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="visualizza_Servizi">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="visualizza_ServiziRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="visualizza_ServiziResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ricercaServizi">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ricercaServiziRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ricercaServiziResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Service_Implementazione_ManagerServizioService">
+
+      <wsdl:port binding="impl:Service_Implementazione_ManagerServizioSoapBinding" name="Service_Implementazione_ManagerServizio">
+
+         <wsdlsoap:address location="http://localhost:8080/GestionePrenotazione/services/Service_Implementazione_ManagerServizio"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

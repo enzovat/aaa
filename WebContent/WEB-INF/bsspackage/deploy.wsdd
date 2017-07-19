@@ -1,0 +1,26 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Service_Implementazione_ManagerPrenotazioneService WSDL service -->
+
+  <service name="Service_Implementazione_ManagerPrenotazione" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bsspackage"/>
+      <parameter name="wsdlServiceElement" value="Service_Implementazione_ManagerPrenotazioneService"/>
+      <parameter name="schemaQualified" value="http://bsspackage"/>
+      <parameter name="wsdlServicePort" value="Service_Implementazione_ManagerPrenotazione"/>
+      <parameter name="className" value="bsspackage.Service_Implementazione_ManagerPrenotazioneSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="Service_Implementazione_ManagerPrenotazione"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+</deployment>

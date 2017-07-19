@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webServices" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webServices" xmlns:intf="http://webServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webServices" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addPrenotazione">
+    <complexType>
+     <sequence>
+      <element name="mypren" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPrenotazioneResponse">
+    <complexType>
+     <sequence>
+      <element name="addPrenotazioneReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delPrenotazione">
+    <complexType>
+     <sequence>
+      <element name="mypren" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delPrenotazioneResponse">
+    <complexType>
+     <sequence>
+      <element name="delPrenotazioneReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchPrenotazione">
+    <complexType>
+     <sequence>
+      <element name="id_cliente" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchPrenotazioneResponse">
+    <complexType>
+     <sequence>
+      <element name="searchPrenotazioneReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editPrenotazione">
+    <complexType>
+     <sequence>
+      <element name="mypren_toMod" type="xsd:string"/>
+      <element name="mypren_New" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editPrenotazioneResponse">
+    <complexType>
+     <sequence>
+      <element name="editPrenotazioneReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="get_prenotazione">
+    <complexType>
+     <sequence>
+      <element name="ID_Prenotazione" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="get_prenotazioneResponse">
+    <complexType>
+     <sequence>
+      <element name="get_prenotazioneReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addPrenotazioneResponse">
+
+      <wsdl:part element="impl:addPrenotazioneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editPrenotazioneRequest">
+
+      <wsdl:part element="impl:editPrenotazione" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addPrenotazioneRequest">
+
+      <wsdl:part element="impl:addPrenotazione" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchPrenotazioneResponse">
+
+      <wsdl:part element="impl:searchPrenotazioneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="delPrenotazioneRequest">
+
+      <wsdl:part element="impl:delPrenotazione" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editPrenotazioneResponse">
+
+      <wsdl:part element="impl:editPrenotazioneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchPrenotazioneRequest">
+
+      <wsdl:part element="impl:searchPrenotazione" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_prenotazioneResponse">
+
+      <wsdl:part element="impl:get_prenotazioneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_prenotazioneRequest">
+
+      <wsdl:part element="impl:get_prenotazione" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="delPrenotazioneResponse">
+
+      <wsdl:part element="impl:delPrenotazioneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service_Implementazione_ManagerPrenotazione">
+
+      <wsdl:operation name="addPrenotazione">
+
+         <wsdl:input message="impl:addPrenotazioneRequest" name="addPrenotazioneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addPrenotazioneResponse" name="addPrenotazioneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delPrenotazione">
+
+         <wsdl:input message="impl:delPrenotazioneRequest" name="delPrenotazioneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:delPrenotazioneResponse" name="delPrenotazioneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchPrenotazione">
+
+         <wsdl:input message="impl:searchPrenotazioneRequest" name="searchPrenotazioneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchPrenotazioneResponse" name="searchPrenotazioneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editPrenotazione">
+
+         <wsdl:input message="impl:editPrenotazioneRequest" name="editPrenotazioneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editPrenotazioneResponse" name="editPrenotazioneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="get_prenotazione">
+
+         <wsdl:input message="impl:get_prenotazioneRequest" name="get_prenotazioneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:get_prenotazioneResponse" name="get_prenotazioneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Service_Implementazione_ManagerPrenotazioneSoapBinding" type="impl:Service_Implementazione_ManagerPrenotazione">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addPrenotazione">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addPrenotazioneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addPrenotazioneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delPrenotazione">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delPrenotazioneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delPrenotazioneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchPrenotazione">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchPrenotazioneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchPrenotazioneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editPrenotazione">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editPrenotazioneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editPrenotazioneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="get_prenotazione">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="get_prenotazioneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="get_prenotazioneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Service_Implementazione_ManagerPrenotazioneService">
+
+      <wsdl:port binding="impl:Service_Implementazione_ManagerPrenotazioneSoapBinding" name="Service_Implementazione_ManagerPrenotazione">
+
+         <wsdlsoap:address location="http://localhost:8080/GestionePrenotazione/services/Service_Implementazione_ManagerPrenotazione"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
